@@ -23,12 +23,19 @@ function timeToString() {
   }
 
   if (time < 0 && item.classList.contains('item--sale')) {
-    item.classList.remove('item--sale');
-    price.innerHTML ='59 <span class="item__rub">&#8381;';
-    time = new Date(3600000);
-    timeToString();
+    price.innerHTML ='-- <span class="item__rub">&#8381;';
+    timeDOM.innerHTML = '00:00';
+    clearInterval(reload);
+
+    setTimeout(function() {
+      item.classList.remove('item--sale');
+      price.innerHTML ='59 <span class="item__rub">&#8381;';
+      time = new Date(3600000);
+      timeToString();
+      reload = setInterval(timeToString, 1000);
+    }, 10000);
   }
 }
 
 timeToString();
-setInterval(timeToString, 1000);
+let reload = setInterval(timeToString, 1000);
