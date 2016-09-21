@@ -1,18 +1,19 @@
-var timeDOM = document.querySelector('.item__time');
-var item = document.querySelector('.item');
-var price = document.querySelector('.item__price');
-var time = new Date(3600000);
+'use strict'
+
+let timeDOM = document.querySelector('.item__time');
+let item = document.querySelector('.item');
+let price = document.querySelector('.item__price');
+let time = new Date(3600000);
 
 function timeToString() {
   time.setSeconds(time.getSeconds() - 1);
 
-  var timeArr = [];
-  timeArr[0] = time.getMinutes();
-  timeArr[1] = time.getSeconds();
-  for (var i = timeArr.length - 1; i >= 0; i--) {
+  let timeArr = [time.getMinutes(), time.getSeconds()];
+
+  for (let i = timeArr.length - 1; i >= 0; i--) {
     if (timeArr[i] <10) timeArr[i] = '0' + timeArr[i];
   }
-  var clock = timeArr[0] + ':' + timeArr[1];
+  let clock = timeArr[0] + ':' + timeArr[1];
 
   timeDOM.innerHTML = clock;
 
