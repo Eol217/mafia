@@ -19,17 +19,17 @@ function timeToString() {
 
   if (time < 900000 && !item.classList.contains('item--sale')) {
     item.classList.add('item--sale');
-    price.innerHTML ='19 <span class="item__rub">&#8381;';
+    price.innerHTML ='19 <span class="item__rub">&#8381;</span>';
   }
 
   if (time < 0 && item.classList.contains('item--sale')) {
-    price.innerHTML ='-- <span class="item__rub">&#8381;';
+    price.innerHTML ='-- <span class="item__rub">&#8381;</span>';
     timeDOM.innerHTML = '00:00';
     clearInterval(reload);
 
     setTimeout(function() {
       item.classList.remove('item--sale');
-      price.innerHTML ='59 <span class="item__rub">&#8381;';
+      price.innerHTML ='59 <span class="item__rub">&#8381;</span>';
       time = new Date(3600000);
       timeToString();
       reload = setInterval(timeToString, 1000);
